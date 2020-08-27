@@ -1,0 +1,56 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+
+<body>
+
+    {% block body %}
+
+    <br>
+    <br>
+    <h1><span><strong>問題</strong></span>
+    </h1>
+    <hr>
+    <br>
+    <br>
+
+    {% for post in posts %}
+    <br>
+    <h1>{{ post.title }}</h1>
+    <br>
+    <form action="{% url 'post-detail' post.id %}">
+        <button type="submit" class="btn btn-primary">確認</button>
+    </form>
+    <br>
+    <hr>
+    {% endfor %}
+
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <form action="{% url 'post-admin' %}">
+                            <button type="submit" class="btn btn-primary">管理者ページへ</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <ul class="footer-links">
+                            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                            <li><a href="{% url 'login' %}">Log In</a></li>
+                            <li><a href="{% url 'logout' %}">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    {% endblock body %}
+
+</body>

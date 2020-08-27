@@ -1,0 +1,68 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+
+
+<body id="wrapper">
+
+    {% block body %}
+
+    <section id="top_banner">
+        <div class="banner">
+            <div class="inner text-center">
+                <h2>Log In</h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="login-reg">
+        <div class="container">
+            <!-- Top content -->
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+
+                    <div class="form-box">
+                        <div class="form-bottom">
+                            <form method='POST' role="form" action="" class="login-form">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn">Log In</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+    </section>
+
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <form action="{% url 'post-admin' %}">
+                            <button type="submit" class="btn btn-primary">管理者ページへ</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <h4>Useful Links</h4>
+                        <hr />
+                        <ul class="footer-links">
+                            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                            <li><a href="{% url 'login' %}">Log In</a></li>
+                            <li><a href="{% url 'logout' %}">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    {% endblock body %}
+
+</body>

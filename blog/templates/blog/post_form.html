@@ -1,0 +1,20 @@
+{% extends 'account/base.html' %}
+
+
+{% block body %}
+<center>
+    <div class="col-md-6 col-sm-12">
+        <div class="form-box">
+            <div class="form-bottom">
+                <form method='POST' role="form" action="" class="login-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">投稿</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</center>
+{% endblock body %}

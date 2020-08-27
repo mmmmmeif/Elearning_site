@@ -1,0 +1,48 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+
+<body>
+
+    {% block body %}
+
+    <br>
+    <br>
+    <p>問題の編集にはログインが必要です</p>
+    <hr>
+    
+    {% for post in posts %}
+    <br>
+    <h1>{{ post.title }}</h1>
+    <br>
+
+    {% if post.author != name %}
+
+    <form action="{% url 'post-update' post.id %}">
+        <button type="submit" class="btn btn-primary">変更</button>
+    </form>
+    <br>
+    <form action="{% url 'post-delete' post.id %}">
+        <button type="submit" class="btn btn-primary">削除</button>
+    </form>
+    {% endif %}
+    <br>
+    <hr>
+    
+
+    {% endfor %}
+
+    <br>
+    <br>
+
+    <form action="{% url 'post-create' %}">
+        <button type="submit" class="btn btn-primary slide">問題を投稿</i> </button>
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    {% endblock body %}
+
+</body>

@@ -1,0 +1,27 @@
+{% extends 'account/base.html' %}
+{% block body %}
+
+<br>
+<br>
+<center>
+    <h2>{{ object.title }} </h2>
+    <br>
+    <br>
+    <ul class="aboutul">
+        <li>
+            <h3>{{ object.content }}</h3>
+        </li>
+    </ul>
+    <hr>
+    <br>
+    <br>
+    <div class="form-bottom">
+    </div>
+    <form action="{% url 'blog-home' %}">
+        <button type="submit" class="btn btn-primary">HOMEへ</button>
+    </form>
+    <br>
+    
+</center>
+
+{% endblock body %}
