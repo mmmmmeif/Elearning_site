@@ -4,7 +4,7 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
-    DeleteView
+    DeleteView,
 )
 from .models import Post
 
@@ -13,28 +13,28 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
-    ordering = ['-date_posted']
+    ordering = ['date_posted']
 
 
 class PartTimerView(ListView):
     model = Post
     template_name = 'blog/parttimer.html'
     context_object_name = 'posts'
-    ordering = ['-date_posted']
+    ordering = ['date_posted']
 
 
 class ManagerView(ListView):
     model = Post
     template_name = 'blog/manager.html'
     context_object_name = 'posts'
-    ordering = ['-date_posted']
+    ordering = ['date_posted']
 
 
 class PostAdmin(ListView):
     model = Post
     template_name = 'blog/admin.html'
     context_object_name = 'posts'
-    ordering = ['-date_posted']
+    ordering = ['date_posted']
 
 
 class PostDetailView(DetailView):
@@ -43,7 +43,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'answer']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -52,7 +52,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'answer']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

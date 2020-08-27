@@ -4,14 +4,30 @@
 <br>
 <br>
 <center>
-    <h2>{{ object.title }} </h2>
+    <h2>{{ object.title }}
+        
+    </h2>
     <br>
     <br>
     <ul class="aboutul">
+        <u>
+            <li>
+                {% if object.answer %}
+                <h2>答え：○</h2>
+                {% elif object.answer == Null %}
+                <h2>答え：どちらでもない</h2>
+                {% else %}
+                <h2>答え：×</h2>
+                {% endif %}
+            </li>
+        </u>
+        <br>
         <li>
             <h3>{{ object.content }}</h3>
         </li>
     </ul>
+    <br>
+    <br>
     <hr>
     <br>
     <br>
@@ -21,7 +37,7 @@
         <button type="submit" class="btn btn-primary">戻る</button>
     </form>
     <br>
-    
+
 </center>
 
 {% endblock body %}
