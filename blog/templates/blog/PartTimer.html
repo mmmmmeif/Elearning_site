@@ -16,10 +16,20 @@
 
     {% for post in posts %}
     <br>
-    <h1>{{ post.title }}</h1>
+    <h2>{{ post.title }}</h2>
+    <br>
+    <select>
+        <option>○</option>
+        <option>×</option>
+        <option>どちらでもない</option>
+    </select>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary">答える</button>
+    <br>
     <br>
     <form action="{% url 'post-detail' post.id %}">
-        <button type="submit" class="btn btn-primary">確認</button>
+        <button type="submit" class="btn btn-primary">解説を見る</button>
     </form>
     <br>
     <hr>
