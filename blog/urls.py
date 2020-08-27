@@ -3,6 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.PostListView.as_view(), name='blog-home'),
+    path('parttimer/', views.PartTimerView.as_view(), name='blog-parttimer'),
+    path('manager/', views.ManagerView.as_view(), name='blog-manager'),
     path('post/admin/', views.PostAdmin.as_view(), name='post-admin'),
     path('post/new/', views.PostCreateView.as_view(), name='post-create'),
     path('post/<int:pk>/', views.PostDetailView.as_view(), name='post-detail'),

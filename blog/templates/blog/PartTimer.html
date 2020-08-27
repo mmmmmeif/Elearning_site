@@ -8,22 +8,22 @@
 
     <br>
     <br>
-    <h1><span><strong>ホーム</strong></span>
+    <h1><span><strong>アルバイト</strong></span>
     </h1>
     <hr>
     <br>
     <br>
-    <form action="{% url 'blog-parttimer' %}">
-        <button type="submit" class="btn btn-primary">アルバイト様向けページへ</button>
-    </form>
-    <br>
-    <br>
-    <form action="{% url 'blog-manager' %}">
-        <button type="submit" class="btn btn-primary">店長様向けページ</button>
-    </form>
-    <br>
-    <br>
 
+    {% for post in posts %}
+    <br>
+    <h1>{{ post.title }}</h1>
+    <br>
+    <form action="{% url 'post-detail' post.id %}">
+        <button type="submit" class="btn btn-primary">確認</button>
+    </form>
+    <br>
+    <hr>
+    {% endfor %}
 
     <section id="footer">
         <div class="container">

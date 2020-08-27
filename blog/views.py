@@ -8,11 +8,27 @@ from django.views.generic import (
 )
 from .models import Post
 
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
+
+
+class PartTimerView(ListView):
+    model = Post
+    template_name = 'blog/parttimer.html'
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
+
+
+class ManagerView(ListView):
+    model = Post
+    template_name = 'blog/manager.html'
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
+
 
 class PostAdmin(ListView):
     model = Post
@@ -47,6 +63,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
+
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
