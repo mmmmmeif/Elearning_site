@@ -1,41 +1,32 @@
 {% extends 'account/base.html' %}
 {% load static %}
 
+
 <body>
     {% block body %}
-
     <br>
     <br>
-    <h2><span><strong>Home</strong></span>
-    </h2>
+    <h1><span><strong>マニュアル翻訳ページ</strong></span>
+    </h1>
     <hr>
     <br>
+    <h4><span>pdf形式のマニュアルをアップロードしてください</span>
+    </h4>
     <br>
 
-<!--ここから-->
-    <section id="intro" class="clearfix">
-        <div class="container">
-
-          <div class="intro-img">
-            <img src="img/intro-img.svg" alt="" class="img-fluid">
-          </div>
-
-          <div class="intro-info">
-            <h2>We provide<br><span>solutions</span><br>for your business!</h2>
-            <div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
     <br>
-              <a href="{% url 'blog-parttimer' %}" class="btn-get-started scrollto">アルバイト様向けページ</a>
-              <a href="{% url 'blog-manager' %}" class="btn-services scrollto">店長様向けページ</a>
-              <br>
-              <a href="{% url 'upload' %}" class="btn-services scrollto">マニュアル翻訳ページ</a>
-            </div>
-          </div>
-
-        </div>
-      </section><!-- #intro -->
+    <br>
+    <br>
+    <br>
+    <br>
 
 
-   <section id="footer">
+    <section id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-12 block">
@@ -46,7 +37,13 @@
                     </div>
                 </div>
 
-
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <form action="{% url 'blog-home' %}">
+                            <button type="submit" class="btn btn-primary">TOPページへ</button>
+                        </form>
+                    </div>
+                </div>
 
                 <div class="col-md-3 col-sm-3 col-xs-12 block">
                     <div class="footer-block">
